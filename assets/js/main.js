@@ -32,6 +32,18 @@ modalClose.forEach((mc) => {
   });
 });
 
+// Prevent right-click context menu
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+
+// Prevent inspecting element via keyboard shortcuts
+window.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && (e.keyCode === 73 || e.keyCode === 67 || e.keyCode === 85 || e.keyCode === 83)) {
+        e.preventDefault();
+    }
+});
+
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 
 let mixer = mixitup(".work__container", {
